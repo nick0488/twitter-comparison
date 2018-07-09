@@ -1,0 +1,35 @@
+== Approach ==
+
+1. Started with setup of angular application and bootstrap
+2. Read up on Twitter API Documentation and find a suitable means of consuming data
+3. Used node.js to connect to Twitter API and set up websockets 
+4. Create pie chart using D3 and intergrate into Angular
+5. Hooked up real time data to service and displayed via graph
+
+
+== Problems ==
+
+1. Twitter API - Not so much a problem more of a learning curve of how to use the API but also what
+technology to access this the data. Firstly was going to use PHP but this had timeout errors and documention on 
+use PHP in this way was vague. Decided to use node.js as this was easiest way to get the data.
+
+2. Twitter Streaming two feeds - A problem that arose was twitters reconnecting. This was easy to handle but for only 
+one stream. When using it for 2 streams occasionally one stream would have to wait. This posed the problem of the
+graph showing one set of data. To try and fix this, a open stream would be paused while another waited. On the frontend
+a countdown was displayed to let the user know a reconnect would be taking place.
+
+
+
+== Notes ==
+
+The comparison tool does fetch the data and displays correctly in a graph, however on changing the keywords. The twitter 
+reconnect can sometimes increase even after waiting a period of time.
+
+Some bugs exist in the D3 graph, if the same keyword is used the graph may only display half the pie chart. Validation is 
+missing from the test.
+
+
+
+
+
+
