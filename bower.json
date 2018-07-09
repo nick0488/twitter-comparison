@@ -1,0 +1,28 @@
+{
+  "name": "twitter-visualisation",
+  "description": "Technical test for UrbanTide",
+  "main": "",
+  "keywords": [
+    "Twitter"
+  ],
+  "authors": [
+    "Nick Hunt"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.*",
+    "jQuery": "^2.*",
+    "bootstrap": "3.3.7",
+    "ng-websocket": "^0.2.1",
+    "angular-websocket": "^2.0.0"
+  }
+}

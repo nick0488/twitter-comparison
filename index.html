@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Twitter Comparison Visualizer</title>
+
+    <!-- Bootstrap -->
+	<script src="vendor/angular/angular.js"></script>
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="vendor/socket/socket.io.js"></script>
+	<link href="css/style.css" rel="stylesheet">
+	<script src="app/main.module.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="twitterVisualisation" ng-app="twitterVisualisation" ng-controller="mainController as controller" class="container">
+	
+
+	<div class="center-block col-sm-6 no-float">
+		<h1 class="text-center">Twitter Visualiser</h1>
+		<form ng-submit="controller.compare()">
+		<div class="row">
+			<div class="col-sm-6">
+				<input type="text" placeholder="Enter word" ng-model="controller.model.wordOne" ng-disabled="controller.data.wait.waiting" class="form-control">
+			</div>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Enter word" ng-model="controller.model.wordTwo" ng-disabled="controller.data.wait.waiting" class="form-control">
+			</div>
+		</div>
+		<div class="text-center margin-top">
+			<button type="submit" class="btn btn-default" ng-disabled="controller.data.wait.waiting">Compare</button>
+		</div>
+		</form>
+	</div>
+	
+	<div ng-hide="!controller.data.wait.waiting"  class="center-block text-center col-sm-6 no-float">
+		Twitter stream will reconnection in {{controller.data.wait.time}} seconds
+	</div>
+	<div ng-hide="controller.data.wait.waiting || !controller.data.init" class="center-block col-sm-6 no-float">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Keyword</th>
+				<th>Total Tweets</th>
+				<th>Percentage</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{controller.data.keywordOne.label}}</td>
+				<td>{{controller.data.keywordOne.total}}</td>
+				<td>{{controller.data.keywordOne.value}}%</td>
+			</tr>
+			<tr>
+				<td>{{controller.data.keywordTwo.label}}</td>
+				<td>{{controller.data.keywordTwo.total}}</td>
+				<td>{{controller.data.keywordTwo.value}}%</td>
+			</tr>
+
+			</tbody>
+	</table>
+	<pie-chart data="controller.data"></pie-chart>
+	</div>
+	
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	
+  </body>
+</html>
