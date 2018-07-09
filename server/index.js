@@ -9,10 +9,10 @@ app.get('/:keyword', function(req, res)  {})
 
 // Twitter OAuth - Please Enter Details here
  const client = new Twitter({
-   consumer_key: 'aMMCReQp1ugdWWXrP8EeZa38S',
-   consumer_secret: 'Lp0f3f4lYF1VPL9gjJbKKiA23gFH4KmX3gpOvrTNLYnv08T7VM',
-   access_token: '22131888-ILmduPb9L9MhiLOkF2wCIE277e1AomQdStr6zzTUv',
-   access_token_secret: 'rbX4AwNDetALOzwB5A75DsHUn5fJd9xfjiqBTlpt7tqH1'
+   consumer_key: '',
+   consumer_secret: '',
+   access_token: '',
+   access_token_secret: ''
  });
 
 
